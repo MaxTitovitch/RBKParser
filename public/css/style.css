@@ -1,0 +1,8 @@
+.flex-grow-2 {
+    flex: 2;
+}
+
+.show-novelty {
+    max-height: 50px;
+    overflow-y: hidden;
+}

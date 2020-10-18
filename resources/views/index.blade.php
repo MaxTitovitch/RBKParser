@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Новости из RBK.RU</title>
 </head>
 <body>
@@ -33,9 +34,16 @@
             @foreach($novelties as $novelty)
                 <div class="col-sm-6 col-md-3 pb-5 d-flex flex-wrap justify-content-between align-items-center flex-column">
                     <a href="{{ route('novelty', ['id' => $novelty->id]) }}" class="text-dark font-weight-bold text-center">{{ $novelty->name }}</a>
-                    <p style="flex-grow: 2" class="mt-2">{{ $novelty->subtitle }}</p>
-                    <p class="font-weight-bold">{{ date('H:i, d.m.Y', strtotime($novelty->date)) }}</p>
-                    <a href="{{ route('novelty', ['id' => $novelty->id]) }}" class="btn btn-dark">Посмотреть</a>
+                    <div class="flex-grow-2 w-100">
+                        <p class="mt-2 show-novelty">{{ $novelty->subtitle }}</p>
+                        @if($novelty->subtitle)
+                            <a href="#" class="text-dark font-weight-bold mb-4 show-novelty-btn text-center w-100 d-block">Показать...</a>
+                        @endif
+                    </div>
+                    <div class="w-100 text-center">
+                        <p class="font-weight-bold">{{ date('H:i, d.m.Y', strtotime($novelty->date)) }}</p>
+                        <a href="{{ route('novelty', ['id' => $novelty->id]) }}" class="btn btn-dark">Посмотреть</a>
+                    </div>
                 </div>
             @endforeach
         </div>
@@ -44,5 +52,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>
