@@ -15,7 +15,7 @@ class CreateNoveltyPartsTable extends Migration
     {
         Schema::create('novelty_parts', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['subtitle', 'text', 'header', 'twit']);
+            $table->enum('type', ['text', 'twit']);
             $table->text('content');
             $table->foreignId('novelty_id');
             $table->timestamps();

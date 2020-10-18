@@ -17,8 +17,9 @@ class CreateNoveltiesTable extends Migration
             $table->id();
             $table->string('name', 255);
             $table->string('slug', 255);
-            $table->string('author', 100);
-            $table->date('date');
+            $table->string('author', 100)->nullable();
+            $table->text('subtitle')->nullable();
+            $table->dateTime('date');
             $table->timestamps();
         });
     }
