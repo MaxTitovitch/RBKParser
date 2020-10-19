@@ -13,4 +13,4 @@ document.querySelectorAll('.show-novelty-btn').forEach(function (button){
             changeElements(this,'Показать...', '50px');
         }
     }
-})
+});

@@ -33,6 +33,9 @@
         <div class="row">
             @foreach($novelties as $novelty)
                 <div class="col-sm-6 col-md-3 pb-5 d-flex flex-wrap justify-content-between align-items-center flex-column">
+                    <a href="{{ route('novelty', ['id' => $novelty->id]) }}">
+                        <img src="{{ asset("/storage/novelty/{$novelty->slug}.png") }}" alt="{{ $novelty->name }}" class="w-100" onerror="this.src = '{{ asset('img/default.png') }}'">
+                    </a>
                     <a href="{{ route('novelty', ['id' => $novelty->id]) }}" class="text-dark font-weight-bold text-center">{{ $novelty->name }}</a>
                     <div class="flex-grow-2 w-100">
                         <p class="mt-2 show-novelty">{{ $novelty->subtitle }}</p>

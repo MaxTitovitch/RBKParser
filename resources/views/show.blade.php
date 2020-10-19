@@ -15,7 +15,9 @@
     <div class="row">
         <div class="col-12 pb-5 d-flex flex-wrap justify-content-between align-items-center flex-column">
             <p class="mt-2 font-weight-bold text-uppercase">{{ $novelty->subtitle }}</p>
-            <img src="{{ asset("/storage/novelty/{$novelty->slug}.png") }}" alt="{{ $novelty->name }}" class="w-100">
+            <a href="{{ route('novelty', ['id' => $novelty->id]) }}">
+                <img src="{{ asset("/storage/novelty/{$novelty->slug}.png") }}" alt="{{ $novelty->name }}" class="w-100" onerror="this.src = '{{ asset('img/default.png') }}'">
+            </a>
             @foreach($novelty->noveltyParts as $part)
                 @if($part->type == 'text')
                     {!! $part->content !!}
